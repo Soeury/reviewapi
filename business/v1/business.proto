@@ -18,7 +18,7 @@ service Business {
 		};
 	};
 
-	// 商家申诉评价
+	// 商家申诉评价 ，调用 review-service 端的 rpc 服务
 }
 
 // ReplyReview 
