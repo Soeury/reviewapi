@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package api.business.v1;
+
+import "third_party/errors/errors.proto";
+
+option go_package = "review-o/api/operation/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.operation.v1";
+
+// 这里自定义的错误码必须从 0 开始计数
+enum ErrorReason {
+    option (errors.default_code) = 500;
+
+    ServerBusy = 0 [(errors.code) = 500];
+}
