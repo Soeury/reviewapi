@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package api.business.v1;
+
+import "third_party/errors/errors.proto";
+
+option go_package = "review-b/api/business/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.business.v1";
+
+enum ErrorReason {
+    option (errors.default_code) = 500;
+
+    ServerBusy = 0 [(errors.code) = 500];
+}
