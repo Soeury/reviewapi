@@ -1471,10 +1471,10 @@ func (m *AuditReviewRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if m.GetStatus() <= 0 {
+	if _, ok := _AuditReviewRequest_Status_InLookup[m.GetStatus()]; !ok {
 		err := AuditReviewRequestValidationError{
 			field:  "Status",
-			reason: "value must be greater than 0",
+			reason: "value must be in list [10 20 30 40]",
 		}
 		if !all {
 			return err
@@ -1587,6 +1587,13 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = AuditReviewRequestValidationError{}
+
+var _AuditReviewRequest_Status_InLookup = map[int32]struct{}{
+	10: {},
+	20: {},
+	30: {},
+	40: {},
+}
 
 // Validate checks the field values on AuditReviewReply with the rules defined
 // in the proto definition for this message. If any rules are violated, the
@@ -1725,10 +1732,10 @@ func (m *AuditAppealRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if m.GetStatus() <= 0 {
+	if _, ok := _AuditAppealRequest_Status_InLookup[m.GetStatus()]; !ok {
 		err := AuditAppealRequestValidationError{
 			field:  "Status",
-			reason: "value must be greater than 0",
+			reason: "value must be in list [10 20 30 40]",
 		}
 		if !all {
 			return err
@@ -1852,6 +1859,13 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = AuditAppealRequestValidationError{}
+
+var _AuditAppealRequest_Status_InLookup = map[int32]struct{}{
+	10: {},
+	20: {},
+	30: {},
+	40: {},
+}
 
 // Validate checks the field values on AuditAppealReply with the rules defined
 // in the proto definition for this message. If any rules are violated, the

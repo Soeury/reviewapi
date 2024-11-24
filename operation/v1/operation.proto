@@ -31,7 +31,7 @@ service Operation{
 // AuditReview
 message AuditReviewRequest {
 	int64 reviewID = 1 [(validate.rules).int64 = {gt: 0}];
-	int32 status = 2 [(validate.rules).int32 = {gt: 0}];
+	int32 status = 2 [(validate.rules).int32 = {in: [10,20,30,40]}];
 	string opUser = 3 [(validate.rules).string = {min_len: 2}];
 	string opReason = 4 [(validate.rules).string = {min_len: 2}];
 	optional string opRemarks = 5;
@@ -46,7 +46,7 @@ message AuditReviewReply {
 message AuditAppealRequest {
 	int64 appealID = 1 [(validate.rules).int64 = {gt: 0}];
     int64 reviewID = 2 [(validate.rules).int64 = {gt: 0}];
-	int32 status = 3 [(validate.rules).int32 = {gt: 0}];
+	int32 status = 3 [(validate.rules).int32 = {in: [10,20,30,40]}];
 	string opUser = 4 [(validate.rules).string = {min_len: 2}];
     string opReason = 5 [(validate.rules).string = {min_len: 2}];
 	optional string opRemarks = 6;
