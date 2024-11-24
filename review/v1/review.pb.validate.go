@@ -1747,6 +1747,28 @@ func (m *AuditAppealRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if m.GetReviewID() <= 0 {
+		err := AuditAppealRequestValidationError{
+			field:  "ReviewID",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if utf8.RuneCountInString(m.GetReason()) < 2 {
+		err := AuditAppealRequestValidationError{
+			field:  "Reason",
+			reason: "value length must be at least 2 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
 	if m.OpRemarks != nil {
 		// no validation rules for OpRemarks
 	}
