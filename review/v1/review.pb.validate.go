@@ -1758,9 +1758,9 @@ func (m *AuditAppealRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if utf8.RuneCountInString(m.GetReason()) < 2 {
+	if utf8.RuneCountInString(m.GetOpReason()) < 2 {
 		err := AuditAppealRequestValidationError{
-			field:  "Reason",
+			field:  "OpReason",
 			reason: "value length must be at least 2 runes",
 		}
 		if !all {
@@ -1876,6 +1876,8 @@ func (m *AuditAppealReply) validate(all bool) error {
 	var errors []error
 
 	// no validation rules for AppealID
+
+	// no validation rules for Status
 
 	if len(errors) > 0 {
 		return AuditAppealReplyMultiError(errors)
