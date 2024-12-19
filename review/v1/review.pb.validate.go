@@ -1000,6 +1000,28 @@ func (m *ListReviewRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if m.GetPage() <= 0 {
+		err := ListReviewRequestValidationError{
+			field:  "Page",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetSize() <= 0 {
+		err := ListReviewRequestValidationError{
+			field:  "Size",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
 	if len(errors) > 0 {
 		return ListReviewRequestMultiError(errors)
 	}

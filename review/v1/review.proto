@@ -65,7 +65,7 @@ service Review {
 		};
 	}
 
-	// 根据 store id 查询评价列表(分页)
+	// 根据 store id 查询评价列表(分页) 
 	rpc GetReviewByStoreID(GetReviewByStoreIDRequest) returns (GetReviewByStoreIDReply) {
 		option (google.api.http) = {
 			get: "/v1/reviews/{storeID}"
@@ -126,6 +126,8 @@ message ReviewInfo {
 // ListReview 
 message ListReviewRequest {
 	int64 userID = 1 [(validate.rules).int64 = {gt: 0}];
+	int32 page = 2 [(validate.rules).int32 = {gt: 0}];
+	int32 size = 3 [(validate.rules).int32 = {gt: 0}];
 }
 
 message ListReviewReply {
